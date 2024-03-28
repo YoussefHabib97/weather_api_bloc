@@ -18,14 +18,17 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   Future<void> getForecast({required String cityName}) async {
     try {
+      isLoading = true;
+      emit(WeatherLoading());
       var forecast = await dio
           .get('$kBaseUrl$kForecastEndPoint?key=$kApiKey&q=$cityName&aqi=no');
+
+      isLoading = false;
       emit(WeatherLoaded());
 
       forecastModel = ForecastModel.fromJson(forecast.data);
       log(forecastModel.toString());
     } catch (e) {
-      print(e);
       emit(WeatherFailure());
     }
   }

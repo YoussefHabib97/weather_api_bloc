@@ -18,12 +18,22 @@ class HomeView extends StatelessWidget {
           builder: (context, state) {
             if (state is WeatherInitial) {
               return const NoWeatherBody();
-            } else {
+            } else if (state is WeatherLoaded) {
               return WeatherBody(
                 forecastModel:
                     BlocProvider.of<WeatherCubit>(context).forecastModel,
               );
+            } else if (state is WeatherLoading) {
+              BlocProvider.of<WeatherCubit>(context).isLoading
+                  ? const Center(child: CircularProgressIndicator.adaptive())
+                  : WeatherBody(
+                      forecastModel:
+                          BlocProvider.of<WeatherCubit>(context).forecastModel,
+                    );
             }
+            return const Center(
+              child: Center(child: CircularProgressIndicator.adaptive()),
+            );
           },
         ),
       ),

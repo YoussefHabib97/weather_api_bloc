@@ -18,8 +18,13 @@ class WeatherBody extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox.square(
-                dimension: 64,
+              Container(
+                width: 64,
+                height: 64,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withAlpha(128),
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 child: Image.network('https:${forecastModel.conditionIcon}'),
               ),
               const SizedBox(width: 24),
