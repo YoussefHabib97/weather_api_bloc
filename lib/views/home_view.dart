@@ -20,8 +20,8 @@ class HomeView extends StatelessWidget {
               return const NoWeatherBody();
             } else {
               return WeatherBody(
-                cityName:
-                    BlocProvider.of<WeatherCubit>(context).forecastModel.name,
+                forecastModel:
+                    BlocProvider.of<WeatherCubit>(context).forecastModel,
               );
             }
           },

@@ -2,7 +2,7 @@ class WeatherState {}
 
 class WeatherInitial extends WeatherState {}
 
-class WeatherSuccess extends WeatherState {}
+class WeatherLoaded extends WeatherState {}
 
 class WeatherLoading extends WeatherState {}
 

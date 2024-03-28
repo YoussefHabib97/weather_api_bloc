@@ -20,7 +20,7 @@ class WeatherCubit extends Cubit<WeatherState> {
     try {
       var forecast = await dio
           .get('$kBaseUrl$kForecastEndPoint?key=$kApiKey&q=$cityName&aqi=no');
-      emit(WeatherSuccess());
+      emit(WeatherLoaded());
 
       forecastModel = ForecastModel.fromJson(forecast.data);
       log(forecastModel.toString());
