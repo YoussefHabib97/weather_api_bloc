@@ -36,7 +36,7 @@ class _SearchBottomSheetState extends State<SearchBottomSheet> {
                   labelText: 'City',
                 ),
                 onChanged: (value) {
-                  _cityTextFieldController.text = value.trim();
+                  _cityTextFieldController.text = value;
                 },
               ),
             ),
